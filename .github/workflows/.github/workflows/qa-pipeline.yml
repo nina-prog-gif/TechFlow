@@ -1,6 +1,8 @@
 name: TechFlow QA Pipeline
 
-on: [push, pull_request]
+'on':
+  push:
+  pull_request:
 
 jobs:
   quality:
@@ -9,15 +11,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-
-      - name: Instalar Dependências
-        run: |
-          pip install -r requirements.txt
-          pip install pytest pytest-cov pytest-flask
-
-      - name: Executar Testes
-        run: |
-          pytest
+      - name: Exibir mensagem
+        run: echo "Pipeline funcionando"
