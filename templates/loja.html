@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja - TechFlow</title>
+    <meta name="description" content="Explore nosso catálogo completo de produtos de tecnologia: hardware, software, impressão 3D e drones.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    
+    <div class="neural-network" id="neuralNetwork" aria-hidden="true"></div>
+    
+    <nav class="navbar" role="navigation" aria-label="Navegação principal">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/" aria-label="Voltar para página inicial do TechFlow">
+                    <i class="fas fa-microchip logo-icon" aria-hidden="true"></i>
+                    <span class="logo-text">TechFlow</span>
+                </a>
+            </div>
+            <div class="nav-menu" role="menubar">
+                <a href="/loja" class="nav-link active" role="menuitem" aria-current="page">Loja</a>
+                <a href="/meus-pedidos" class="nav-link" role="menuitem">Meus Pedidos</a>
+                <a href="/carrinho" class="nav-link" role="menuitem" aria-label="Carrinho de compras">
+                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    <span class="cart-badge" id="cartBadge" aria-label="0 itens no carrinho">0</span>
+                    <span class="sr-only">Carrinho</span>
+                </a>
+                <a href="/logout" class="btn btn-outline" role="menuitem">Sair</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Alternar entre tema claro e escuro">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                    <span class="sr-only">Alternar tema</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+    <section class="loja-section" aria-labelledby="loja-title">
+        <div class="container">
+            <h1 id="loja-title" class="page-title">
+                Nossa <span class="gradient-text">Loja</span>
+            </h1>
+
+            <div class="filters" role="group" aria-label="Filtrar produtos por categoria">
+                <button class="filter-btn active" data-filter="all" aria-pressed="true" aria-label="Mostrar todos os produtos">
+                    <i class="fas fa-th" aria-hidden="true"></i> Todos
+                </button>
+                <button class="filter-btn" data-filter="hardware" aria-pressed="false" aria-label="Filtrar apenas hardware">
+                    <i class="fas fa-microchip" aria-hidden="true"></i> Hardware
+                </button>
+                <button class="filter-btn" data-filter="software" aria-pressed="false" aria-label="Filtrar apenas software">
+                    <i class="fas fa-laptop-code" aria-hidden="true"></i> Software
+                </button>
+                <button class="filter-btn" data-filter="impressao3d" aria-pressed="false" aria-label="Filtrar apenas impressão 3D">
+                    <i class="fas fa-cube" aria-hidden="true"></i> Impressão 3D
+                </button>
+                <button class="filter-btn" data-filter="drone" aria-pressed="false" aria-label="Filtrar apenas drones">
+                    <i class="fas fa-helicopter" aria-hidden="true"></i> Drones
+                </button>
+            </div>
+
+            <div class="produtos-grid" id="produtosGrid" role="list" aria-live="polite" aria-label="Lista de produtos">
+                <!-- Produtos serão carregados aqui -->
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/loja.js') }}"></script>
+</body>
+</html>

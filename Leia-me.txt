@@ -1,0 +1,10 @@
+Software simples com banco de dados para a aula de desenvolvimento web com Flask, HTML, CSS e Javascript
+Software de delivery de suprimentos de informática com acompanhamento de entrega em tempo real (simulado)
+Preciso de um nome e uma logo
+O software precisa conter:
+ - Pagina incial (index.html) bonita e moderna para a loja de equipamentos de hardware e software, impressão 3d e drone, com tema claro e escuro para acessibilidade e responsivo.
+  - Cores preto, branco, azul escuro e laranja, muitos efeitos visuais, rede neural no fundo
+ - Preciso de uma pagina de cadastro simples, com nome, sobrenome, e-mail e senha
+ - Página de login
+ - após o login o usuário pode escolher os produtos, por no carrinho e comprar(simulação)
+

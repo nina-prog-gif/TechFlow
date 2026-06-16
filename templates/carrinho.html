@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - TechFlow</title>
+    <meta name="description" content="Revise os produtos no seu carrinho e finalize sua compra.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    
+    <div class="neural-network" id="neuralNetwork" aria-hidden="true"></div>
+    
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/">
+                    <i class="fas fa-microchip logo-icon"></i>
+                    <span class="logo-text">TechFlow</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="/loja" class="nav-link">Loja</a>
+                <a href="/meus-pedidos" class="nav-link">Meus Pedidos</a>
+                <a href="/carrinho" class="nav-link active">
+                    <i class="fas fa-shopping-cart"></i> Carrinho
+                </a>
+                <a href="/logout" class="btn btn-outline">Sair</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="carrinho-section">
+        <div class="container">
+            <h1 class="page-title">
+                Seu <span class="gradient-text">Carrinho</span>
+            </h1>
+
+            <div class="carrinho-container">
+                <div class="carrinho-items" id="carrinhoItems">
+                    <!-- Itens do carrinho serão carregados aqui -->
+                </div>
+
+                <div class="carrinho-summary">
+                    <h3>Resumo do Pedido</h3>
+                    <div class="summary-item">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">R$ 0,00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Frete:</span>
+                        <span class="free">Grátis</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-item summary-total">
+                        <span>Total:</span>
+                        <span id="total">R$ 0,00</span>
+                    </div>
+                    <button class="btn btn-primary btn-block" id="finalizarBtn">
+                        <i class="fas fa-check"></i> Finalizar Compra
+                    </button>
+                    <a href="/loja" class="btn btn-outline btn-block">
+                        <i class="fas fa-arrow-left"></i> Continuar Comprando
+                    </a>
+                </div>
+            </div>
+
+            <div class="carrinho-vazio" id="carrinhoVazio" style="display: none;">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Seu carrinho está vazio</h3>
+                <p>Adicione produtos para começar suas compras</p>
+                <a href="/loja" class="btn btn-primary">
+                    <i class="fas fa-shopping-bag"></i> Ir para Loja
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/carrinho.js') }}"></script>
+</body>
+</html>

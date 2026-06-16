@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - TechFlow</title>
+    <meta name="description" content="Crie sua conta no TechFlow e comece a comprar produtos de tecnologia com entrega rápida.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    
+    <div class="neural-network" id="neuralNetwork" aria-hidden="true"></div>
+    
+    <nav class="navbar" role="navigation" aria-label="Navegação principal">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/" aria-label="Voltar para página inicial do TechFlow">
+                    <i class="fas fa-microchip logo-icon" aria-hidden="true"></i>
+                    <span class="logo-text">TechFlow</span>
+                </a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Alternar entre tema claro e escuro" title="Alternar tema">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+                <span class="sr-only">Alternar tema</span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+    <section class="auth-section" aria-labelledby="cadastro-title">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <i class="fas fa-user-plus auth-icon" aria-hidden="true"></i>
+                        <h1 id="cadastro-title">Criar Conta</h1>
+                        <p>Cadastre-se e comece a comprar</p>
+                    </div>
+                    
+                    <form id="cadastroForm" class="auth-form" aria-label="Formulário de cadastro">
+                        <div class="form-group">
+                            <label for="nome">
+                                <i class="fas fa-user" aria-hidden="true"></i> Nome
+                            </label>
+                            <input type="text" id="nome" name="nome" required placeholder="Seu nome" aria-required="true" aria-describedby="nome-help">
+                            <span id="nome-help" class="sr-only">Digite seu primeiro nome</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sobrenome">
+                                <i class="fas fa-user" aria-hidden="true"></i> Sobrenome
+                            </label>
+                            <input type="text" id="sobrenome" name="sobrenome" required placeholder="Seu sobrenome" aria-required="true" aria-describedby="sobrenome-help">
+                            <span id="sobrenome-help" class="sr-only">Digite seu sobrenome</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope" aria-hidden="true"></i> E-mail
+                            </label>
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com" aria-required="true" aria-describedby="email-help" autocomplete="email">
+                            <span id="email-help" class="sr-only">Digite um endereço de e-mail válido</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="senha">
+                                <i class="fas fa-lock" aria-hidden="true"></i> Senha
+                            </label>
+                            <div class="password-input">
+                                <input type="password" id="senha" name="senha" required placeholder="Mínimo 6 caracteres" aria-required="true" aria-describedby="senha-help" autocomplete="new-password">
+                                <button type="button" class="toggle-password" onclick="togglePassword()" aria-label="Mostrar ou ocultar senha" aria-pressed="false">
+                                    <i class="fas fa-eye" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <span id="senha-help" class="sr-only">A senha deve ter no mínimo 6 caracteres</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block" aria-label="Cadastrar nova conta">
+                            <i class="fas fa-user-plus" aria-hidden="true"></i> Cadastrar
+                        </button>
+                    </form>
+
+                    <div class="auth-footer">
+                        <p>Já tem uma conta? <a href="/login">Fazer login</a></p>
+                    </div>
+
+                    <div id="message" class="message" role="alert" aria-live="polite" aria-atomic="true"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+</body>
+</html>

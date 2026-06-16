@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Pedidos - TechFlow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="neural-network" id="neuralNetwork"></div>
+    
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/">
+                    <i class="fas fa-microchip logo-icon"></i>
+                    <span class="logo-text">TechFlow</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="/loja" class="nav-link">Loja</a>
+                <a href="/meus-pedidos" class="nav-link active">Meus Pedidos</a>
+                <a href="/carrinho" class="nav-link">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <a href="/logout" class="btn btn-outline">Sair</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pedidos-section">
+        <div class="container">
+            <h1 class="page-title">
+                Meus <span class="gradient-text">Pedidos</span>
+            </h1>
+
+            {% if pedidos %}
+                <div class="pedidos-lista">
+                    {% for pedido in pedidos %}
+                    <div class="pedido-card">
+                        <div class="pedido-header">
+                            <div>
+                                <h3>Pedido #{{ pedido.id }}</h3>
+                                <p class="pedido-data">{{ pedido.data.strftime('%d/%m/%Y às %H:%M') }}</p>
+                            </div>
+                            <span class="status-badge status-{{ pedido.status|lower|replace(' ', '-') }}">
+                                {{ pedido.status }}
+                            </span>
+                        </div>
+                        
+                        <div class="pedido-body">
+                            <div class="pedido-itens-resumo">
+                                {% for item in pedido.itens %}
+                                    <span class="item-resumo">{{ item.quantidade }}x {{ item.produto.nome }}</span>
+                                {% endfor %}
+                            </div>
+                            
+                            <div class="pedido-total">
+                                <span class="total-label">Total:</span>
+                                <span class="total-valor">R$ {{ "%.2f"|format(pedido.total) }}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pedido-footer">
+                            <a href="/rastreamento/{{ pedido.id }}" class="btn btn-primary">
+                                <i class="fas fa-map-marker-alt"></i> Rastrear Pedido
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="pedidos-vazio">
+                    <i class="fas fa-box-open"></i>
+                    <h3>Você ainda não fez nenhum pedido</h3>
+                    <p>Explore nossa loja e faça seu primeiro pedido!</p>
+                    <a href="/loja" class="btn btn-primary">
+                        <i class="fas fa-shopping-bag"></i> Ir para Loja
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TechFlow</title>
+    <meta name="description" content="Faça login na sua conta TechFlow para continuar suas compras.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    
+    <div class="neural-network" id="neuralNetwork" aria-hidden="true"></div>
+    
+    <nav class="navbar" role="navigation" aria-label="Navegação principal">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/" aria-label="Voltar para página inicial do TechFlow">
+                    <i class="fas fa-microchip logo-icon" aria-hidden="true"></i>
+                    <span class="logo-text">TechFlow</span>
+                </a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Alternar entre tema claro e escuro" title="Alternar tema">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+                <span class="sr-only">Alternar tema</span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+    <section class="auth-section" aria-labelledby="login-title">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <i class="fas fa-sign-in-alt auth-icon" aria-hidden="true"></i>
+                        <h1 id="login-title">Bem-vindo de volta!</h1>
+                        <p>Entre para continuar suas compras</p>
+                    </div>
+                    
+                    <form id="loginForm" class="auth-form" aria-label="Formulário de login">
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope" aria-hidden="true"></i> E-mail
+                            </label>
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com" aria-required="true" autocomplete="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="senha">
+                                <i class="fas fa-lock" aria-hidden="true"></i> Senha
+                            </label>
+                            <div class="password-input">
+                                <input type="password" id="senha" name="senha" required placeholder="Sua senha" aria-required="true" autocomplete="current-password">
+                                <button type="button" class="toggle-password" onclick="togglePassword()" aria-label="Mostrar ou ocultar senha" aria-pressed="false">
+                                    <i class="fas fa-eye" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block" aria-label="Entrar na conta">
+                            <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Entrar
+                        </button>
+                    </form>
+
+                    <div class="auth-footer">
+                        <p>Não tem uma conta? <a href="/cadastro">Cadastre-se</a></p>
+                    </div>
+
+                    <div id="message" class="message" role="alert" aria-live="polite" aria-atomic="true"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+</body>
+</html>
